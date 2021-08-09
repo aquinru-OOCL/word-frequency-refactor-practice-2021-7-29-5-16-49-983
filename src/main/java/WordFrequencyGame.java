@@ -8,11 +8,12 @@ public class WordFrequencyGame {
     public static final String BLANK_SPACES = "\\s+";
 
     public String getResult(String sentence){
-
-        return getWordFrequency(sentence);
+        List<WordInfo> wordInfoList = getWordFrequency(sentence);
+        sortCountDescending(wordInfoList);
+        return joinWordInfos(wordInfoList);
     }
 
-    private String getWordFrequency(String sentence) {
+    private List<WordInfo> getWordFrequency(String sentence) {
         List<String> words = Arrays.asList(sentence.split(BLANK_SPACES));
         List<WordInfo> wordInfos = new ArrayList<>();
 
@@ -22,10 +23,7 @@ public class WordFrequencyGame {
                     wordInfos.add(new WordInfo(word, count));
                 });
 
-        List<WordInfo> wordInfoList;
-        wordInfoList = wordInfos;
-        sortCountDescending(wordInfoList);
-        return joinWordInfos(wordInfoList);
+        return wordInfos;
     }
 
     private void sortCountDescending(List<WordInfo> wordInfoList) {
