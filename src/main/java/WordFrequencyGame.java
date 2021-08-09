@@ -6,7 +6,6 @@ public class WordFrequencyGame {
 
     public String getResult(String sentence){
 
-
         if (sentence.split(BLANK_SPACES).length==1) {
             return sentence + " 1";
         } else {
@@ -14,10 +13,10 @@ public class WordFrequencyGame {
             try {
 
                 //split the input string with 1 to n pieces of spaces
-                String[] arr = sentence.split(BLANK_SPACES);
+                String[] words = sentence.split(BLANK_SPACES);
 
                 List<Input> inputList = new ArrayList<>();
-                for (String s : arr) {
+                for (String s : words) {
                     Input input = new Input(s, 1);
                     inputList.add(input);
                 }
