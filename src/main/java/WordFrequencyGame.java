@@ -39,7 +39,7 @@ public class WordFrequencyGame {
                     joinedWordInfo.add(finalWord);
                 }
                 return joinedWordInfo.toString();
-            } catch (Exception e) {
+            } catch (Exception exception) {
 
 
                 return "Calculate Error";
