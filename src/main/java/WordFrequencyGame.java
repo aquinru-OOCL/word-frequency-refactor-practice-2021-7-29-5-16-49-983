@@ -6,6 +6,10 @@ public class WordFrequencyGame {
 
     public String getResult(String sentence){
 
+        return getWordFrequency(sentence);
+    }
+
+    private String getWordFrequency(String sentence) {
         if (sentence.split(BLANK_SPACES).length==1) {
             return sentence + " 1";
         } else {
