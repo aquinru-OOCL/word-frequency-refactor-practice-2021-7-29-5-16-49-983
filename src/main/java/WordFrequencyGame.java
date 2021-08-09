@@ -15,10 +15,12 @@ public class WordFrequencyGame {
     private String getWordFrequency(String sentence) {
         List<String> words = Arrays.asList(sentence.split(BLANK_SPACES));
         List<WordInfo> wordInfos = new ArrayList<>();
-        for (String word : new HashSet<>(words)) {
-            int count = Collections.frequency(words, word);
-            wordInfos.add(new WordInfo(word, count));
-        }
+
+        new HashSet<>(words)
+                .forEach(word -> {
+                    int count = Collections.frequency(words, word);
+                    wordInfos.add(new WordInfo(word, count));
+                });
 
         List<WordInfo> wordInfoList;
         wordInfoList = wordInfos;
