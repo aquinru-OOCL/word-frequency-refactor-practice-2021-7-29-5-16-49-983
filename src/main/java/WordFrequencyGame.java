@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static java.util.Collections.reverseOrder;
 import static java.util.Comparator.comparingInt;
@@ -32,10 +33,13 @@ public class WordFrequencyGame {
 
     private String joinWordInfos(List<WordInfo> wordInfoList) {
         StringJoiner joinedWordInfo = new StringJoiner("\n");
-        for (WordInfo wordInfo : wordInfoList) {
-            String finalWord = wordInfo.getWord() + " " +wordInfo.getWordCount();
-            joinedWordInfo.add(finalWord);
-        }
+
+        wordInfoList
+                .forEach(wordInfo -> {
+                    String word = wordInfo.getWord() + " " + wordInfo.getWordCount();
+                    joinedWordInfo.add(word);
+                });
+
         return joinedWordInfo.toString();
     }
 
