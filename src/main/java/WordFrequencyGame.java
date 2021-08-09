@@ -1,5 +1,8 @@
 import java.util.*;
 
+import static java.util.Collections.reverseOrder;
+import static java.util.Comparator.comparingInt;
+
 public class WordFrequencyGame {
 
     public static final String BLANK_SPACES = "\\s+";
@@ -24,7 +27,7 @@ public class WordFrequencyGame {
     }
 
     private void sortCountDescending(List<WordInfo> wordInfoList) {
-        wordInfoList.sort((firstWord, secondWord) -> secondWord.getWordCount() - firstWord.getWordCount());
+        wordInfoList.sort(reverseOrder(comparingInt(WordInfo::getWordCount)));
     }
 
     private String joinWordInfos(List<WordInfo> wordInfoList) {
