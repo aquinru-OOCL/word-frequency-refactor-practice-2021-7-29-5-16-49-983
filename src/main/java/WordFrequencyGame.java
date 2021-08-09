@@ -35,7 +35,7 @@ public class WordFrequencyGame {
                 }
                 wordInfoList = wordInfos;
 
-                wordInfoList.sort((firstWord, secondWord) -> secondWord.getWordCount() - firstWord.getWordCount());
+                sortCountDescending(wordInfoList);
 
                 return joinWordInfos(wordInfoList);
             } catch (Exception exception) {
@@ -44,6 +44,10 @@ public class WordFrequencyGame {
                 return "Calculate Error";
             }
         }
+    }
+
+    private void sortCountDescending(List<WordInfo> wordInfoList) {
+        wordInfoList.sort((firstWord, secondWord) -> secondWord.getWordCount() - firstWord.getWordCount());
     }
 
     private String joinWordInfos(List<WordInfo> wordInfoList) {
